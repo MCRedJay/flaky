@@ -60,7 +60,7 @@ defmodule Flaky.Server do
 
     {iface, _} =
       Enum.find addresses, fn({_iface, params}) ->
-        if Enum.member?(params[:flags], :broadcast) and Enum.member?(params[:flags], :multicast) do
+        if Enum.member?(params[:flags], :broadcast) and Enum.member?(params[:flags], :running) do
           not nil?(params[:hwaddr]) and Enum.max(params[:hwaddr]) > 0
         end
       end
